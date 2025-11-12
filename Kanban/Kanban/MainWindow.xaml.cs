@@ -23,6 +23,8 @@ namespace Kanban
         public MainWindow()
         {
             InitializeComponent();
+
+            Console.WriteLine("Funciona");
         }
 
         //holaaa

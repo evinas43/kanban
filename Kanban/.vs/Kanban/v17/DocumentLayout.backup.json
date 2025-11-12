@@ -42,8 +42,13 @@
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\Kanban\\Kanban\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Kanban\\MainWindow.xaml",
+<<<<<<< HEAD
               "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\Kanban\\Kanban\\MainWindow.xaml",
               "RelativeToolTip": "Kanban\\MainWindow.xaml",
+=======
+              "ToolTip": "C:\\Users\\faeer\\source\\repos\\Kanban\\Kanban\\MainWindow.xaml*",
+              "RelativeToolTip": "Kanban\\MainWindow.xaml*",
+>>>>>>> d0848c581b27b2ad81c31bed9a3f6340207553ea
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-11-11T14:29:55.585Z",
               "EditorCaption": ""

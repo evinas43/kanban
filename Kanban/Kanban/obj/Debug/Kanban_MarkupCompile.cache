@@ -4,17 +4,25 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\
+=======
+C:\Users\Nibi.exe\source\repos\ProjecteKanban\kanban\Kanban\Kanban\obj\Debug\
+>>>>>>> d0848c581b27b2ad81c31bed9a3f6340207553ea
 Kanban
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\App.xaml
+=======
+C:\Users\Nibi.exe\source\repos\ProjecteKanban\kanban\Kanban\Kanban\App.xaml
+>>>>>>> d0848c581b27b2ad81c31bed9a3f6340207553ea
 1219584333
 
-51579654133
+6-793535042
 13-38814620
 MainWindow.xaml;
 
-False
+True
 
