@@ -24,5 +24,7 @@ namespace Kanban
         {
             InitializeComponent();
         }
+
+        //holaaa
     }
 }
