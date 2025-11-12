@@ -1,0 +1,16 @@
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban.csproj.AssemblyReference.cache
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\App.g.cs
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban_MarkupCompile.cache
+C:\Users\faeer\source\repos\Kanban\Kanban\bin\Debug\Kanban.exe.config
+C:\Users\faeer\source\repos\Kanban\Kanban\bin\Debug\Kanban.exe
+C:\Users\faeer\source\repos\Kanban\Kanban\bin\Debug\Kanban.pdb
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\MainWindow.g.cs
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban_MarkupCompile.lref
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\MainWindow.baml
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban.g.resources
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban.Properties.Resources.resources
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban.csproj.GenerateResource.cache
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban.csproj.CoreCompileInputs.cache
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban.exe
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban.pdb
+C:\Users\faeer\source\repos\Kanban\Kanban\obj\Debug\Kanban.exe.config
