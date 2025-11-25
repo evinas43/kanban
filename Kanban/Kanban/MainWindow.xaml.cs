@@ -20,55 +20,56 @@ namespace Kanban
     /// </summary>
     public partial class MainWindow : Window
     {
+        private User _loggedUser;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+        public MainWindow(User loggedUser):this()
+        { 
+            _loggedUser = loggedUser ?? throw new ArgumentNullException(nameof(loggedUser));
 
-            List<User> users = new List<User>();
-            var indentifier = GenerarId();
-             users.Add(new User()
+        
+            List<User> users = new List<User>
             {
-                id = indentifier,
-                nom = "usuari1",
-                admin = true
-            });
-            users.Add(new User()
-            {
-                id = indentifier,
-                nom = "usuari2",
-                admin = false
-            });
+                _loggedUser,
+                new User { id = GenerarId(), nom = "usuari2", password = "1234", admin = false }
+            };
 
             List<task> tasques = new List<task>();
 
-            Random rnd = new Random();
-            string[] titols = { "Compra material", "Revisar codi", "Documentar mòdul", "Provar funcions",
-                    "Implementar API", "Optimitzar consulta", "Corregir errors", "Preparar informe",
-                    "Validar dades", "Configurar servidor" };
+             Random rnd = new Random();
+                string[] titols = { "Compra material", "Revisar codi", "Documentar mòdul", "Provar funcions",
+                        "Implementar API", "Optimitzar consulta", "Corregir errors", "Preparar informe",
+                        "Validar dades", "Configurar servidor" };
 
-            string[] descripcions = { "Tasca automàtica generada.", "Acció pendent.",
-                          "Cal revisar-ho.", "Generada per proves." };
+                string[] descripcions = { "Tasca automàtica generada.", "Acció pendent.",
+                              "Cal revisar-ho.", "Generada per proves." };
 
-            for (int i = 0; i < 10; i++)
-            {
-                var estatActual = (task.estat)rnd.Next(0, 4);
-                var prioritatActual = (task.priority)rnd.Next(0, 3);
-                int any = rnd.Next(2020, 2030);    
-                int mes = rnd.Next(1, 13);          
-                int dia = rnd.Next(1, DateTime.DaysInMonth(any, mes) + 1); 
-
-                DateTime dateDeadline= new DateTime(any,mes, dia);
-                tasques.Add(new task()
+                for (int i = 0; i < 10; i++)
                 {
-                    titul = titols[rnd.Next(titols.Length)],
-                    Descripció = descripcions[rnd.Next(descripcions.Length)],
-                    estatTasca = estatActual,
-                    prioritat = prioritatActual,
-                    deadline = dateDeadline,
-                    usuari = users[0]
+                    var idtask = GenerarId();
+                    var estatActual = (task.estat)rnd.Next(0, 4);
+                    var prioritatActual = (task.priority)rnd.Next(0, 3);
+                    int any = rnd.Next(2020, 2030);    
+                    int mes = rnd.Next(1, 13);          
+                    int dia = rnd.Next(1, DateTime.DaysInMonth(any, mes) + 1); 
+
+                    DateTime dateDeadline= new DateTime(any,mes, dia);
+                    tasques.Add(new task()
+                    {
+                        id = idtask,
+                        titul = titols[rnd.Next(titols.Length)],
+                        Descripció = descripcions[rnd.Next(descripcions.Length)],
+                        estatTasca = estatActual,
+                        prioritat = prioritatActual,
+                        deadline = dateDeadline,
+                        usuari = users[0]
 
 
-                });
+                    });
+
             }
              DataContext = tasques.Where(t => t.estatTasca == task.estat.pending).ToList();
                 toDoList.ItemsSource = tasques.Where(t => t.estatTasca == task.estat.pending).ToList();
@@ -105,7 +106,7 @@ namespace Kanban
         }
         public class task
             {
-
+                public string id { get; set; }
                 public string titul { get; set; }
                 public string Descripció { get; set; }
                 public enum estat
@@ -136,6 +137,7 @@ namespace Kanban
         {
             public string id { get; set; }
             public string nom { get; set; }
+            public string password {  get; set; }
             public bool admin { get; set; }
 
 

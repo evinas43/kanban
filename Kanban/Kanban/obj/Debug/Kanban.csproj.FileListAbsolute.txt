@@ -32,3 +32,5 @@ C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\Kanban.exe
 C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\Kanban.pdb
 C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\popUpxaml.g.cs
 C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\popUpxaml.baml
+C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\Login.g.cs
+C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\Login.baml
