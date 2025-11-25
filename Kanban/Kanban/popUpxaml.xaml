@@ -1,0 +1,45 @@
+﻿<Window x:Class="Kanban.popUpxaml"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kanban"
+        mc:Ignorable="d"
+        Title="popUpxaml" Height="450" Width="800">
+    <Grid Background="#1E2A38" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- Contenido principal -->
+            <RowDefinition Height="Auto"/>
+            <!-- Footer con botón -->
+        </Grid.RowDefinitions>
+
+        <!-- Contenido principal -->
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="{Binding titul}" FontSize="40" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
+            <TextBlock Text="{Binding Descripció}" FontSize="14" Foreground="#CCFFFFFF" TextWrapping="Wrap" Margin="0,0,0,10"/>
+            <TextBlock Text="{Binding usuari.nom, StringFormat='Usuario: {0}'}" Foreground="White" Margin="0,0,0,10"/>
+            <Border CornerRadius="4" Padding="4,2" HorizontalAlignment="Left" Margin="0,0,0,0">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="Green"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding prioritat}" Value="mid">
+                                <Setter Property="Background" Value="Orange"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding prioritat}" Value="high">
+                                <Setter Property="Background" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <TextBlock Text="{Binding prioritat}" Foreground="White" FontSize="12"/>
+            </Border>
+        </StackPanel>
+
+       
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button Content="Cerrar" Width="80" Click="Cerrar_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
