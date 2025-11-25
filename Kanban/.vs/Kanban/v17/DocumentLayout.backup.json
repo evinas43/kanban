@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\popupxaml.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|c:\\users\\faeer\\desktop\\github\\kanban\\kanban\\popupxaml.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\Kanban\\kanban\\popupxaml.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\popupxaml.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,15 +15,15 @@
       "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|c:\\users\\faeer\\desktop\\github\\kanban\\kanban\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\Kanban\\kanban\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|c:\\users\\faeer\\desktop\\github\\kanban\\kanban\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\Kanban\\kanban\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|c:\\users\\faeer\\desktop\\github\\kanban\\kanban\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\Kanban\\kanban\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "Kanban\\popUpxaml.xaml.cs",
               "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\Kanban\\Kanban\\popUpxaml.xaml.cs",
               "RelativeToolTip": "Kanban\\popUpxaml.xaml.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAiwBoAAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAiwBMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-25T16:22:45.365Z",
               "EditorCaption": ""
@@ -126,7 +126,7 @@
               "RelativeDocumentMoniker": "Kanban\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\Kanban\\Kanban\\MainWindow.xaml.cs",
               "RelativeToolTip": "Kanban\\MainWindow.xaml.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAwEcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAnwDwAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T14:29:54.748Z",
               "EditorCaption": ""

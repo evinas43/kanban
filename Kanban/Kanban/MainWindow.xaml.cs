@@ -53,12 +53,18 @@ namespace Kanban
             {
                 var estatActual = (task.estat)rnd.Next(0, 4);
                 var prioritatActual = (task.priority)rnd.Next(0, 3);
+                int any = rnd.Next(2020, 2030);    
+                int mes = rnd.Next(1, 13);          
+                int dia = rnd.Next(1, DateTime.DaysInMonth(any, mes) + 1); 
+
+                DateTime dateDeadline= new DateTime(any,mes, dia);
                 tasques.Add(new task()
                 {
                     titul = titols[rnd.Next(titols.Length)],
                     Descripció = descripcions[rnd.Next(descripcions.Length)],
                     estatTasca = estatActual,
                     prioritat = prioritatActual,
+                    deadline = dateDeadline,
                     usuari = users[0]
 
 
@@ -119,7 +125,8 @@ namespace Kanban
 
                 public estat estatTasca { get; set; }
                 public priority prioritat { get; set; }
-
+                
+                public DateTime deadline { get; set; }
                 public User usuari {  get; set; }
           
 
