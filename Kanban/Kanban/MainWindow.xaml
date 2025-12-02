@@ -7,16 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-       
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="#FF0D1B2A" Offset="0"/>
                 <GradientStop Color="#FF1B2B3A" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-   
-        <StackPanel Margin="40">
-                                  
+
+        <StackPanel Margin="40,40,40,40" Grid.ColumnSpan="2">
+
             <TextBlock Text="Kanban" 
                        Foreground="White"
                        FontSize="36"
@@ -40,10 +44,10 @@
                         <Border Background="#2962FF" CornerRadius="8" Padding="10" Margin="8">
                             <TextBlock Text="To Do" Foreground="White" FontWeight="Bold" FontSize="16"/>
                         </Border>
-                        <ListView x:Name="toDoList" Margin="8" Background="#2A2F3A" BorderThickness="0" Foreground="White"  MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6" >
+                        <ListView x:Name="toDoList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White"  MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6" HorizontalAlignment="Stretch" >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border CornerRadius="6" Padding="6" HorizontalAlignment="Stretch" Width="400">
+                                    <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4" Width="350">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
@@ -86,7 +90,7 @@
                         <ListView x:Name="doingList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4">
+                                    <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4" Width="350">
                                         <StackPanel>
                                             <TextBlock Text="{Binding titul}" FontWeight="Bold" Foreground="White"/>
                                             <TextBlock Text="{Binding Descripció}" FontSize="12" Foreground="#88FFFFFF"/>
@@ -123,7 +127,7 @@
                         <ListView x:Name="toReviewList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4">
+                                    <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4" Width="350">
                                         <StackPanel>
                                             <TextBlock Text="{Binding titul}" FontWeight="Bold" Foreground="White"/>
                                             <TextBlock Text="{Binding Descripció}" FontSize="12" Foreground="#88FFFFFF"/>
@@ -160,7 +164,7 @@
                         <ListView x:Name="doneList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4">
+                                    <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4" Width="350">
                                         <StackPanel>
                                             <TextBlock Text="{Binding titul}" FontWeight="Bold" Foreground="White"/>
                                             <TextBlock Text="{Binding Descripció}" FontSize="12" Foreground="#88FFFFFF"/>

@@ -16,10 +16,14 @@
 
         <!-- Contenido principal -->
         <StackPanel Grid.Row="0">
+            <TextBlock Text="Titol" FontSize="40" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
             <TextBlock Text="{Binding titul}" FontSize="40" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
+            <TextBlock Text="Descripcio:" FontSize="14" Foreground="#CCFFFFFF" TextWrapping="Wrap" Margin="0,0,0,10"/>
             <TextBlock Text="{Binding Descripció}" FontSize="14" Foreground="#CCFFFFFF" TextWrapping="Wrap" Margin="0,0,0,10"/>
+            <TextBlock Text="usuari:" Foreground="White" Margin="0,0,0,10"/>
             <TextBlock Text="{Binding usuari.nom, StringFormat='Usuario: {0}'}" Foreground="White" Margin="0,0,0,10"/>
             <TextBlock Text="{Binding deadline, StringFormat='Data limit: {0}'}" Foreground="White" Margin="0,0,0,10"/>
+            <TextBlock Text="estat : " Foreground="White" Margin="0,0,0,10"/>
             <Border CornerRadius="4" Padding="4,2" HorizontalAlignment="Left" Margin="0,0,0,0">
                 <Border.Style>
                     <Style TargetType="Border">
