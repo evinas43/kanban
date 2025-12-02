@@ -41,7 +41,7 @@ namespace Kanban
         private void IniciarSesion_Click(object sender, RoutedEventArgs e)
         {
             string user = username.Text?.Trim();
-            string pass = password.Text?.Trim();
+            string pass = password.Password?.Trim();
 
             // Ejemplo simple: validación hardcoded (reemplaza por tu lógica real)
             var found = users.FirstOrDefault(u => u.nom == user && u.password == pass);
@@ -58,6 +58,8 @@ namespace Kanban
                 txtError.Visibility = Visibility.Visible;
             }
         }
+
+       
 
     }
 }

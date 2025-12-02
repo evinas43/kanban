@@ -40,16 +40,20 @@
                         <Border Background="#2962FF" CornerRadius="8" Padding="10" Margin="8">
                             <TextBlock Text="To Do" Foreground="White" FontWeight="Bold" FontSize="16"/>
                         </Border>
-                        <ListView x:Name="toDoList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White"  MouseDoubleClick="TaskListView_MouseDoubleClick">
+                        <ListView x:Name="toDoList" Margin="8" Background="#2A2F3A" BorderThickness="0" Foreground="White"  MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6" >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4">
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding titul}" FontWeight="Bold" Foreground="White"/>
-                                            <TextBlock Text="{Binding Descripció}" FontSize="12" Foreground="#88FFFFFF"/>
+                                    <Border CornerRadius="6" Padding="6" HorizontalAlignment="Stretch" Width="400">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
 
-                                            <!-- Prioritat -->
-                                            <Border CornerRadius="4" Padding="4,2" HorizontalAlignment="Left" Margin="0,6,0,0">
+                                            <TextBlock Text="{Binding titul}" FontWeight="Bold" Foreground="White"/>
+                                            <TextBlock Text="{Binding Descripció}" FontSize="12" Foreground="#88FFFFFF" Grid.Row="1"/>
+                                            <Border CornerRadius="4" Padding="4,2" HorizontalAlignment="Left" Margin="0,6,0,0" Grid.Row="2">
                                                 <Border.Style>
                                                     <Style TargetType="Border">
                                                         <Setter Property="Background" Value="Green"/>
@@ -65,7 +69,7 @@
                                                 </Border.Style>
                                                 <TextBlock Text="{Binding prioritat}" Foreground="White" FontSize="11"/>
                                             </Border>
-                                        </StackPanel>
+                                        </Grid>
                                     </Border>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -79,7 +83,7 @@
                         <Border Background="#FFA000" CornerRadius="8" Padding="10" Margin="8">
                             <TextBlock Text="Doing" Foreground="White" FontWeight="Bold" FontSize="16"/>
                         </Border>
-                        <ListView x:Name="doingList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick">
+                        <ListView x:Name="doingList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4">
@@ -116,7 +120,7 @@
                         <Border Background="#AA00FF" CornerRadius="8" Padding="10" Margin="8">
                             <TextBlock Text="To Review" Foreground="White" FontWeight="Bold" FontSize="16"/>
                         </Border>
-                        <ListView x:Name="toReviewList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick">
+                        <ListView x:Name="toReviewList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4">
@@ -153,7 +157,7 @@
                         <Border Background="#00C853" CornerRadius="8" Padding="10" Margin="8">
                             <TextBlock Text="Done" Foreground="White" FontWeight="Bold" FontSize="16"/>
                         </Border>
-                        <ListView x:Name="doneList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick">
+                        <ListView x:Name="doneList" Margin="8" Background="#1E2A38" BorderThickness="0" Foreground="White" MouseDoubleClick="TaskListView_MouseDoubleClick" Padding="6">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Border Background="#2A2F3A" CornerRadius="6" Padding="6" Margin="4">

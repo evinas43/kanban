@@ -31,9 +31,9 @@
                        Foreground="White"
                        FontSize="14"
                        FontWeight="Bold" HorizontalAlignment="left"/>
-                    <TextBox x:Name="password"  Background="Transparent" Foreground="Transparent" BorderBrush="White">
-
-                    </TextBox>
+                    <PasswordBox x:Name="password"  Background="Transparent" Foreground="White" BorderBrush="White">
+                      
+                    </PasswordBox>
                 </StackPanel>
                 <Button Content="Iniciar Sesión" Width="120" Height="26" Background="#FFA000"
                     Foreground="White" FontWeight="Bold" Click="IniciarSesion_Click"/>
