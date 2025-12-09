@@ -195,8 +195,8 @@
                         <Button Foreground="White" Background="Transparent" Click="AddTask_Click">+add task</Button>
                     </StackPanel>
                 </Border>
-
             </Grid>
         </StackPanel>
+        <Button Content="Panell de control" Width="120" Height="26" Background="#076300" Foreground="White" FontWeight="Bold" Click="UserList" Margin="640,10,10,268" Panel.ZIndex="1" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

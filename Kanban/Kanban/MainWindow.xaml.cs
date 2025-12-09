@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Kanban.MainWindow;
 
 namespace Kanban
 {
@@ -165,8 +166,10 @@ namespace Kanban
 
         }
 
-
-
-
+        private void UserList(object sender, RoutedEventArgs e)
+        {
+            var userListWindow = new userList();
+            userListWindow.Show();
+        }
     }
 }

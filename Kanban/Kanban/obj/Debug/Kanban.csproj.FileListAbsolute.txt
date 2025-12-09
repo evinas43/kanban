@@ -36,3 +36,5 @@ C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\Login.g.cs
 C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\Login.baml
 C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\Register.g.cs
 C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\Register.baml
+C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\userList.g.cs
+C:\Users\faeer\Desktop\GITHUB\Kanban\Kanban\obj\Debug\userList.baml
