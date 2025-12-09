@@ -4,47 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kanban"
-        mc:Ignorable="d"
         Title="popUpxaml" Height="450" Width="800">
-    <Grid Background="#1E2A38" Margin="10">
+    
+    <Grid Background="#1E2A38">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <!-- Contenido principal -->
             <RowDefinition Height="Auto"/>
-            <!-- Footer con botón -->
         </Grid.RowDefinitions>
 
-        <!-- Contenido principal -->
         <StackPanel Grid.Row="0">
-            <TextBlock Text="Titol" FontSize="40" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding titul}" FontSize="40" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="Descripcio:" FontSize="14" Foreground="#CCFFFFFF" TextWrapping="Wrap" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding Descripció}" FontSize="14" Foreground="#CCFFFFFF" TextWrapping="Wrap" Margin="0,0,0,10"/>
-            <TextBlock Text="usuari:" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding usuari.nom, StringFormat='Usuario: {0}'}" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding deadline, StringFormat='Data limit: {0}'}" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="estat : " Foreground="White" Margin="0,0,0,10"/>
-            <Border CornerRadius="4" Padding="4,2" HorizontalAlignment="Left" Margin="0,0,0,0">
-                <Border.Style>
-                    <Style TargetType="Border">
-                        <Setter Property="Background" Value="Green"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding prioritat}" Value="mid">
-                                <Setter Property="Background" Value="Orange"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding prioritat}" Value="high">
-                                <Setter Property="Background" Value="Red"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Border.Style>
-                <TextBlock Text="{Binding prioritat}" Foreground="White" FontSize="12"/>
-            </Border>
+
+            <TextBlock Text="Título:" Foreground="White"/>
+            <TextBox x:Name="txtTitulo" Text="{Binding titul}" Margin="0,5,0,15" Foreground="White" Background="#1E2A38"/>
+
+            <TextBlock Text="Descripción:" Foreground="White"/>
+            <TextBox x:Name="txtDescripcion" Text="{Binding Descripció}" Margin="0,5,0,15" Height="80" TextWrapping="Wrap" Foreground="White" Background="#1E2A38"/>
+
+            <TextBlock Text="Estado:" Foreground="White" />
+            <ComboBox x:Name="comboEstat" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=estats}" SelectedItem="{Binding estat}" />
+
+            <TextBlock Text="Prioridad:" Foreground="White" />
+            <ComboBox x:Name="comboPrioridad"
+          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=prioritats}"
+          SelectedItem="{Binding prioritat}" />
         </StackPanel>
 
-       
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,10">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Button x:Name="btnGuardar" Content="Guardar" Width="80" Margin="10" Click="Guardar_Click"/>
             <Button Content="Cerrar" Width="80" Click="Cerrar_Click"/>
         </StackPanel>
+
     </Grid>
 </Window>

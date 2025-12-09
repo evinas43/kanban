@@ -59,7 +59,11 @@ namespace Kanban
             }
         }
 
-       
+        private void Register_click(object sender, RoutedEventArgs e)
+        {
+            var registerWindow = new Register(users);
+            bool? result = registerWindow.ShowDialog();
+        }
 
     }
 }

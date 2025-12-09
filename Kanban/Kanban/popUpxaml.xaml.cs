@@ -19,14 +19,67 @@ namespace Kanban
     /// </summary>
     public partial class popUpxaml : Window
     {
+        public bool _esNueva;
+        public MainWindow.task Tasca { get; set; }
+        public Array estats => Enum.GetValues(typeof(MainWindow.task.estat));
+        public Array prioritats => Enum.GetValues(typeof(MainWindow.task.priority));
+
+
+        // Modo visualización
         public popUpxaml(MainWindow.task t)
         {
-            InitializeComponent();
-            this.DataContext = t;
+            InitializeComponent();  
+            _esNueva = false;
+            Tasca = t;
+
+            DataContext = Tasca;   
+            ActivarModoLectura();
         }
+
+        // Modo creación
+        public popUpxaml(bool esNueva)
+        {
+            InitializeComponent();
+            _esNueva = esNueva;
+
+            Tasca = new MainWindow.task
+            {
+                id = MainWindow.GenerarId(),
+                deadline = DateTime.Now
+            };
+
+            DataContext = Tasca;  
+            ActivarModoEdicion();
+        }
+
+        private void ActivarModoLectura()
+        {
+            txtTitulo.IsReadOnly = true;
+            txtDescripcion.IsReadOnly = true;
+            comboEstat.IsEnabled = false;
+            comboPrioridad.IsEnabled = false;
+            btnGuardar.Visibility = Visibility.Collapsed;
+        }
+
+        private void ActivarModoEdicion()
+        {
+            txtTitulo.IsReadOnly = false;
+            txtDescripcion.IsReadOnly = false;
+            comboEstat.IsEnabled = true;
+            comboPrioridad.IsEnabled = true;
+            btnGuardar.Visibility = Visibility.Visible;
+        }
+
         private void Cerrar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
+        }
+
+        private void Guardar_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true; // para que MainWindow sepa que se guardó
+            Close();
         }
     }
+
 }
