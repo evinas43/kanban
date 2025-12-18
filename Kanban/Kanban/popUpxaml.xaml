@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kanban"
-        Title="popUpxaml" Height="450" Width="800">
-    
+        Title="popUpxaml"  Height="450" Width="800">
+
     <Grid Background="#1E2A38">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -15,24 +15,34 @@
         <StackPanel Grid.Row="0">
 
             <TextBlock Text="Título:" Foreground="White"/>
-            <TextBox x:Name="txtTitulo" Text="{Binding titul}" Margin="0,5,0,15" Foreground="White" Background="#1E2A38"/>
+            <TextBox x:Name="txtTitulo" Text="{Binding Nom, Mode=TwoWay}" Margin="0,5,0,15" Foreground="White" Background="#1E2A38"/>
 
             <TextBlock Text="Descripción:" Foreground="White"/>
-            <TextBox x:Name="txtDescripcion" Text="{Binding Descripció}" Margin="0,5,0,15" Height="80" TextWrapping="Wrap" Foreground="White" Background="#1E2A38"/>
+            <TextBox x:Name="txtDescripcion"  Text="{Binding Descripcio, Mode=TwoWay}" Margin="0,5,0,15" Height="80" TextWrapping="Wrap" Foreground="White" Background="#1E2A38"/>
+
+            <TextBlock Text="Fecha límite:" Foreground="White"/>
+            <DatePicker x:Name="FinalDate" SelectedDate="{Binding DataFinal, Mode=TwoWay}"
+            Margin="0,5,0,15"/>
+
+            <TextBlock Text="Usuario asignado:" Foreground="White" />
+            <ComboBox x:Name="comboUsuario" DisplayMemberPath="UserName" SelectedValuePath="Id"/>
 
             <TextBlock Text="Estado:" Foreground="White" />
-            <ComboBox x:Name="comboEstat" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=estats}" SelectedItem="{Binding estat}" />
+            <ComboBox x:Name="comboEstat"/>
 
             <TextBlock Text="Prioridad:" Foreground="White" />
-            <ComboBox x:Name="comboPrioridad"
-          ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=prioritats}"
-          SelectedItem="{Binding prioritat}" />
+            <ComboBox x:Name="comboPrioridad"/>
+
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
             <Button x:Name="btnGuardar" Content="Guardar" Width="80" Margin="10" Click="Guardar_Click"/>
             <Button Content="Cerrar" Width="80" Click="Cerrar_Click"/>
+
+
+
         </StackPanel>
+        <Button x:Name="btnBorrar" Content="🗑️" Background="Red" Foreground="White" Height="40" Click="Borrar_Click" Margin="10,5,732,5" Grid.Row="1" />
 
     </Grid>
 </Window>

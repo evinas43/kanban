@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Kanban.Controllers;
+using Kanban.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,66 +21,89 @@ namespace Kanban
     /// </summary>
     public partial class userList : Window
     {
-      
-            public userList()
-            {
-                InitializeComponent();
+        private UserController userController;
 
-                // Crear lista de usuarios de ejemplo
-                var users = new List<User>
-            {
-                new User { Username = "jordi123", Nom = "Jordi", Cognom = "Pérez", Admin = true, NumTasques = 5 },
-                new User { Username = "anna88", Nom = "Anna", Cognom = "Martí", Admin = false, NumTasques = 3 },
-                new User { Username = "pau77", Nom = "Pau", Cognom = "Gómez", Admin = false, NumTasques = 7 }
-            };
-
-                // Asignar lista al DataGrid
-                UsersGrid.ItemsSource = users;
-            }
-
-            private void BackToKanban_LogIn(object sender, RoutedEventArgs e)
-            {
-                this.Close();
-            }
-
-            private void AddUser_Click(object sender, RoutedEventArgs e)
-            {
-                MessageBox.Show("Aquí se abriría el formulario para añadir un usuario.");
-            }
-
-            private void EditUser_Click(object sender, RoutedEventArgs e)
-            {
-                if (UsersGrid.SelectedItem is User selectedUser)
-                {
-                    MessageBox.Show($"Aquí se editaría el usuario: {selectedUser.Username}");
-                }
-                else
-                {
-                    MessageBox.Show("Selecciona un usuario para modificar.");
-                }
-            }
-
-            private void DeleteUser_Click(object sender, RoutedEventArgs e)
-            {
-                if (UsersGrid.SelectedItem is User selectedUser)
-                {
-                    MessageBox.Show($"Aquí se eliminaría el usuario: {selectedUser.Username}");
-                }
-                else
-                {
-                    MessageBox.Show("Selecciona un usuario para eliminar.");
-                }
-            }
-        
-
-        // Clase de ejemplo para los usuarios
-        public class User
+        public userList()
         {
-            public string Username { get; set; }
-            public string Nom { get; set; }
-            public string Cognom { get; set; }
-            public bool Admin { get; set; }
-            public int NumTasques { get; set; }
+            InitializeComponent();
+            userController = new UserController();
+            Loaded += UserList_Loaded;
+        }
+
+        private async void UserList_Loaded(object sender, RoutedEventArgs e)
+        {
+            await CargarUsuariosAsync();
+        }
+
+        private async Task CargarUsuariosAsync()
+        {
+            try
+            {
+                List<User> usuarios = await userController.GetAllUsersAsync();
+                UsersGrid.ItemsSource = usuarios;
+            }
+            catch
+            {
+                MessageBox.Show("Error al cargar los usuarios desde la base de datos.");
+            }
+        }
+
+        private void BackToKanban_LogIn(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private async void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            // Aquí abrirías un formulario para crear un usuario
+            MessageBox.Show("Formulario de creación de usuario.");
+            await CargarUsuariosAsync(); // refrescar lista
+        }
+
+        private async void EditUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (UsersGrid.SelectedItem is User selectedUser)
+            {
+                // Abrir formulario para editar usuario
+                MessageBox.Show($"Editar usuario: {selectedUser.UserName}");
+                await CargarUsuariosAsync(); // refrescar lista tras editar
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un usuario para modificar.");
+            }
+        }
+
+        private async void DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (UsersGrid.SelectedItem is User selectedUser)
+            {
+                if (MessageBox.Show($"¿Seguro que quieres eliminar al usuario {selectedUser.UserName}?",
+                    "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        bool eliminado = await userController.DeleteUserAsync(selectedUser.Id);
+                        if (eliminado)
+                        {
+                            MessageBox.Show("Usuario eliminado correctamente.");
+                            await CargarUsuariosAsync(); // refrescar lista
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo eliminar el usuario.");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error al eliminar el usuario.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un usuario para eliminar.");
+            }
         }
     }
 }

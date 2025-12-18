@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Kanban.Model;
+using System.Windows;
+using System.Diagnostics;
+
 
 
 namespace Kanban.Controllers
@@ -19,6 +22,7 @@ namespace Kanban.Controllers
         public UserController()
         {
             BaseUri = ConfigurationManager.AppSettings["BaseUri"];
+
         }
 
         public async Task<List<User>> GetAllUsersAsync()
@@ -34,7 +38,7 @@ namespace Kanban.Controllers
                 );
 
                 // GET /user
-                HttpResponseMessage response = await client.GetAsync("user");
+                HttpResponseMessage response = await client.GetAsync("users");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -68,7 +72,7 @@ namespace Kanban.Controllers
                     new MediaTypeWithQualityHeaderValue("application/json")
                 );
 
-                // GET /user/count/{id}
+                // GET /users/count/{id}
                 HttpResponseMessage response = await client.GetAsync($"user/count/{id}");
 
                 if (response.IsSuccessStatusCode)
@@ -106,7 +110,7 @@ namespace Kanban.Controllers
                 );
 
                 // POST /user
-                HttpResponseMessage response = await client.PostAsJsonAsync("user", user);
+                HttpResponseMessage response = await client.PostAsJsonAsync("users", user);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -193,6 +197,44 @@ namespace Kanban.Controllers
 
             return deleted;
         }
+        public async Task<User> LoginWithUsersAsync(string username, string password)
+        {
+            try
+            {
+                var users = await GetAllUsersAsync();
 
+                // Mostrar cuántos usuarios se han recibido
+                Debug.WriteLine($"Usuarios recibidos: {users?.Count ?? 0}");
+
+                // Mostrar detalles de cada usuario
+                if (users != null)
+                {
+                    foreach (var u in users)
+                    {
+                        Debug.WriteLine($"User: id={u.Id}, username={u.UserName} ,nom={u.Nom}, password={u.Passwd}, admin={u.IsAdmin}");
+                    }
+                }
+
+                // Comprobar login
+                foreach (User u in users)
+                {
+                    if (u.UserName == username && u.Passwd == password)
+                    {
+                        Debug.WriteLine($"Usuario encontrado: {u.UserName}");
+                        return u;
+                    }
+                }
+
+                Debug.WriteLine("Usuario no encontrado");
+                return null;
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error en LoginWithUsersAsync: {e.Message}");
+                MessageBox.Show(e.Message);
+                return null;
+            }
+        }
     }
 }

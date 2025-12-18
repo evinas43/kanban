@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kanban.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,46 +12,42 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using static Kanban.MainWindow;
+using Kanban.Model;
+
 
 namespace Kanban
 {
-    /// <summary>
-    /// Lógica de interacción para Login.xaml
-    /// </summary>
     public partial class Login : Window
     {
-        private List<MainWindow.User> users;
-
-        public MainWindow.User LoggedUser { get; private set; }
+        private readonly UserController userController;
+        public User LoggedUser { get; private set; }
 
         public Login()
         {
-
-            InitializeComponent(); // sempre crida-ho primer per crear controls
-
-            // Omplir la llista d'usuaris (hardcoded per ara)
-            users = new List<MainWindow.User>()
-            {
-                new MainWindow.User { id = MainWindow.GenerarId(), nom = "usuari1", password = "1234", admin = true },
-                new MainWindow.User { id = MainWindow.GenerarId(), nom = "usuari2", password = "1234", admin = false }
-            };
-
+            InitializeComponent();
+            userController = new UserController();
             txtError.Visibility = Visibility.Collapsed;
         }
-        private void IniciarSesion_Click(object sender, RoutedEventArgs e)
+
+        private async void IniciarSesion_Click(object sender, RoutedEventArgs e)
         {
-            string user = username.Text?.Trim();
+            txtError.Visibility = Visibility.Collapsed;
+
+            string usernameValue = username.Text?.Trim();
             string pass = password.Password?.Trim();
 
-            // Ejemplo simple: validación hardcoded (reemplaza por tu lógica real)
-            var found = users.FirstOrDefault(u => u.nom == user && u.password == pass);
+            //if (string.IsNullOrEmpty(usernameValue) || string.IsNullOrEmpty(passwordValue))
+            //{
+            //    txtError.Text = "Introdueix usuari i contrasenya";
+            //    txtError.Visibility = Visibility.Visible;
+            //    return;
+            //}
 
-            if (found != null)
+            LoggedUser = await userController.LoginWithUsersAsync(usernameValue, pass);
+
+            if (LoggedUser != null)
             {
-                LoggedUser = found;
-                this.DialogResult = true; // això fa que ShowDialog() retorni true
-                // no cridar Close() explícitament si fas DialogResult = true
+                DialogResult = true;
             }
             else
             {
@@ -61,9 +58,8 @@ namespace Kanban
 
         private void Register_click(object sender, RoutedEventArgs e)
         {
-            var registerWindow = new Register(users);
-            bool? result = registerWindow.ShowDialog();
+            var registerWindow = new Register();
+            registerWindow.ShowDialog();
         }
-
     }
 }

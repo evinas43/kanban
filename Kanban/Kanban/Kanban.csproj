@@ -82,6 +82,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="Converters\PrioritatConverter.cs" />
     <Compile Include="Model\Tasques.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Register.xaml.cs">

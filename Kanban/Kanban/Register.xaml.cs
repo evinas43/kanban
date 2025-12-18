@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kanban.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Kanban.Model;
 
 namespace Kanban
 {
@@ -19,41 +21,61 @@ namespace Kanban
     /// </summary>
     public partial class Register : Window
     {
-        private List<MainWindow.User> users;
+        private readonly UserController userController;
 
-        public Register(List<MainWindow.User> usersList)
+        public Register()
         {
             InitializeComponent();
-            users = usersList;
+            userController = new UserController();
         }
 
-        private void Register_Click(object sender, RoutedEventArgs e)
+        private async void Register_Click(object sender, RoutedEventArgs e)
         {
-            string user = username.Text.Trim();
-            string pass = password.Password.Trim();
+            string nameValue = name.Text.Trim();
+            string surnameValue = surname.Text.Trim();
+            string usernameValue = username.Text.Trim();
+            string passwordValue = password.Password.Trim();
 
-            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
+            if (string.IsNullOrEmpty(usernameValue) || string.IsNullOrEmpty(passwordValue))
             {
-                txtError.Text = "L'usuari i/o contrasenya son obligatoris i no poden estar buits";
+                txtError.Text = "L'usuari i/o contrasenya son obligatoris";
                 txtError.Visibility = Visibility.Visible;
                 return;
             }
 
-            // Crear usuari
-            var nouUsuari = new MainWindow.User
+            // Create user object
+            Kanban.Model.User newUser = new Kanban.Model.User
             {
-                id = MainWindow.GenerarId(),
-                nom = user,
-                password = pass,
-                admin = false
+                UserName = usernameValue,
+                Nom = nameValue,
+                Cognom = surnameValue,
+                Passwd = passwordValue,
+                IsAdmin = 0
             };
 
-            // Afegir-lo a la llista del Login
-            users.Add(nouUsuari);
+            try
+            {
+                User createdUser = await userController.InsertUserAsync(newUser);
 
-            // Tornar al login
-            this.DialogResult = true;
+                if (createdUser != null)
+                {
+                    MessageBox.Show("Usuari creat correctament");
+                    this.DialogResult = true;
+                    this.Close();
+                }
+                else
+                {
+                    txtError.Text = "No s'ha pogut crear l'usuari";
+                    txtError.Visibility = Visibility.Visible;
+                }
+            }
+            catch (Exception ex)
+            {
+                txtError.Text = "Error de connexió amb el servidor";
+                txtError.Visibility = Visibility.Visible;
+            }
         }
+    
         private void BackTo_LogIn(object sender, RoutedEventArgs e)
         {
             this.Close();
