@@ -62,15 +62,11 @@ namespace Kanban
         {
             if (sender is ListView lv && lv.SelectedItem is Tasques selectedTask)
             {
-                bool admin = false;
-                if (_loggedUser.IsAdmin == 1)
-                {
-                    admin = true;
-                }
+                bool admin = true;
+                
+                
 
-                else { 
-                    admin = false;
-                }
+            
                   var popup = new popUpxaml(selectedTask, true,admin);   
                 popup.Owner = this;
                 popup.ShowDialog();
