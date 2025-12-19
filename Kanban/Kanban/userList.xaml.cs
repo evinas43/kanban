@@ -3,22 +3,12 @@ using Kanban.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Kanban
 {
-    /// <summary>
-    /// Lógica de interacción para userList.xaml
-    /// </summary>
     public partial class userList : Window
     {
         private UserController userController;
@@ -32,19 +22,28 @@ namespace Kanban
 
         private async void UserList_Loaded(object sender, RoutedEventArgs e)
         {
-            await CargarUsuariosAsync();
+            await LoadUsersAsync();
         }
 
-        private async Task CargarUsuariosAsync()
+        private async Task LoadUsersAsync()
         {
             try
             {
-                List<User> usuarios = await userController.GetAllUsersAsync();
-                UsersGrid.ItemsSource = usuarios;
+                var users = await userController.GetAllUsersAsync();
+                var tasks = new List<User>();
+
+                foreach (var u in users)
+                {
+                    int count = await userController.GetUserTaskCountAsync(u.Id);
+                    u.NumTasques = count;
+                    tasks.Add(u);
+                }
+
+                UsersGrid.ItemsSource = tasks;
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los usuarios desde la base de datos.");
+                MessageBox.Show($"Error cargando usuarios: {ex.Message}");
             }
         }
 
@@ -55,18 +54,44 @@ namespace Kanban
 
         private async void AddUser_Click(object sender, RoutedEventArgs e)
         {
-            // Aquí abrirías un formulario para crear un usuario
-            MessageBox.Show("Formulario de creación de usuario.");
-            await CargarUsuariosAsync(); // refrescar lista
+            var form = new UserForm { Owner = this };
+
+            if (form.ShowDialog() == true)
+            {
+                var created = await userController.InsertUserAsync(form.User);
+
+                if (created != null)
+                {
+                    MessageBox.Show($"Usuario {created.UserName} creado.");
+                    await LoadUsersAsync();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo crear el usuario.");
+                }
+            }
         }
 
         private async void EditUser_Click(object sender, RoutedEventArgs e)
         {
             if (UsersGrid.SelectedItem is User selectedUser)
             {
-                // Abrir formulario para editar usuario
-                MessageBox.Show($"Editar usuario: {selectedUser.UserName}");
-                await CargarUsuariosAsync(); // refrescar lista tras editar
+                var form = new UserForm(selectedUser) { Owner = this };
+
+                if (form.ShowDialog() == true)
+                {
+                    bool updated = await userController.UpdateUserAsync(form.User.Id, form.User);
+
+                    if (updated)
+                    {
+                        MessageBox.Show($"Usuario {form.User.UserName} actualizado.");
+                        await LoadUsersAsync();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo actualizar el usuario.");
+                    }
+                }
             }
             else
             {
@@ -78,25 +103,25 @@ namespace Kanban
         {
             if (UsersGrid.SelectedItem is User selectedUser)
             {
-                if (MessageBox.Show($"¿Seguro que quieres eliminar al usuario {selectedUser.UserName}?",
-                    "Confirmar eliminación", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                var result = MessageBox.Show(
+                    $"¿Seguro que quieres eliminar al usuario {selectedUser.UserName}?",
+                    "Confirmar eliminación",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning
+                );
+
+                if (result == MessageBoxResult.Yes)
                 {
-                    try
+                    bool deleted = await userController.DeleteUserAsync(selectedUser.Id);
+
+                    if (deleted)
                     {
-                        bool eliminado = await userController.DeleteUserAsync(selectedUser.Id);
-                        if (eliminado)
-                        {
-                            MessageBox.Show("Usuario eliminado correctamente.");
-                            await CargarUsuariosAsync(); // refrescar lista
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se pudo eliminar el usuario.");
-                        }
+                        MessageBox.Show("Usuario eliminado correctamente.");
+                        await LoadUsersAsync();
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Error al eliminar el usuario.");
+                        MessageBox.Show("No se pudo eliminar el usuario.");
                     }
                 }
             }

@@ -93,7 +93,7 @@ namespace Kanban
         {
             Tasca.Nom = txtTitulo.Text;
             Tasca.Descripcio = txtDescripcion.Text;
-            Tasca.Prioritat = comboPrioridad.SelectedIndex;
+            Tasca.Prioritat = comboPrioridad.SelectedIndex+1;
             Tasca.Estat = comboEstat.SelectedIndex + 1;
             Tasca.DataFinal = FinalDate.SelectedDate;
             Tasca.UsuariId = comboUsuario.SelectedValue as int?;

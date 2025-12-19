@@ -1,7 +1,8 @@
 ﻿<Window x:Class="Kanban.userList"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="userList" Height="650" Width="1000">
+        Title="userList" Height="650" Width="1050">
+
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -13,28 +14,16 @@
         <StackPanel Margin="30">
 
             <!-- HEADER -->
-            <TextBlock Text="Administració d'Usuaris"
-                       Foreground="White"
-                       FontSize="36"
-                       FontWeight="Bold"/>
-            <TextBlock Text="Gestió, alta, baixa i modificació"
-                       Foreground="#88FFFFFF"
-                       FontSize="16"
-                       Margin="0,4,0,25"/>
+            <TextBlock Text="Administració d'Usuaris" Foreground="White" FontSize="36" FontWeight="Bold"/>
+            <TextBlock Text="Gestió, alta, baixa i modificació" Foreground="#88FFFFFF" FontSize="16" Margin="0,4,0,25"/>
 
             <!-- DATAGRID -->
-            <Border CornerRadius="10" Padding="5" Background="#112233">
-                <DataGrid x:Name="UsersGrid"
-                          AutoGenerateColumns="False"
-                          Background="#112233"
-                          Foreground="White"
-                          GridLinesVisibility="Horizontal"
-                          HeadersVisibility="Column"
-                          CanUserAddRows="False"
-                          RowBackground="#112233"
-                          AlternatingRowBackground="#1A2B3C"
-                          FontSize="14"
-                          FontWeight="Normal">
+            <Border CornerRadius="10" Padding="5" Background="#112233" Width="947">
+                <DataGrid x:Name="UsersGrid" AutoGenerateColumns="False" Background="#112233" Foreground="White"
+                          GridLinesVisibility="Horizontal" HeadersVisibility="Column" CanUserAddRows="False"
+                          RowBackground="#112233" AlternatingRowBackground="#1A2B3C" FontSize="14" FontWeight="Normal"
+                          Margin="10,0,12,0">
+
                     <DataGrid.ColumnHeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Background" Value="#0D1B2A"/>
@@ -42,38 +31,34 @@
                             <Setter Property="FontWeight" Value="Bold"/>
                             <Setter Property="FontSize" Value="14"/>
                         </Style>
-                    </DataGrid.ColumnHeaderStyle>   
+                    </DataGrid.ColumnHeaderStyle>
+
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Username" Binding="{Binding UserName}" Width="*"/>
                         <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="*"/>
                         <DataGridTextColumn Header="Cognom" Binding="{Binding Cognom}" Width="*"/>
-                        <DataGridCheckBoxColumn Header="Administrador" Binding="{Binding Isadmin}" Width="120"/>
-                        <DataGridTextColumn Header="Tasques" Binding="{Binding NumTasques}" Width="120"/>
+                        <DataGridCheckBoxColumn Header="Administrador" Binding="{Binding IsAdmin}" Width="120"/>
+                        <DataGridTextColumn Header="Tasques Assig" Binding="{Binding NumTasques}" Width="120"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Border>
 
             <!-- BOTONES -->
-            <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        Margin="0,20,0,10">
-
-                <Button Content="➕Afegir usuari" Width="150" Height="35" Background="#00C853" Foreground="White" FontWeight="Bold" Margin="5,0" Click="AddUser_Click"/>
-                <Button Content="⚙️Modificar usuari" Width="150" Height="35" Background="#2962FF" Foreground="White" FontWeight="Bold" Margin="5,0" Click="EditUser_Click"/>
-                <Button Content="🗑️Eliminar usuari" Width="150" Height="35" Background="#D50000" Foreground="White" FontWeight="Bold" Margin="5,0" Click="DeleteUser_Click"/>
-
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,10">
+                <Button Content="➕Afegir usuari" Width="150" Height="35" Background="#00C853" Foreground="White"
+                        FontWeight="Bold" Margin="5,0" Click="AddUser_Click"/>
+                <Button Content="⚙️Modificar usuari" Width="150" Height="35" Background="#2962FF" Foreground="White"
+                        FontWeight="Bold" Margin="5,0" Click="EditUser_Click"/>
+                <Button Content="🗑️Eliminar usuari" Width="150" Height="35" Background="#D50000" Foreground="White"
+                        FontWeight="Bold" Margin="5,0" Click="DeleteUser_Click"/>
             </StackPanel>
 
         </StackPanel>
 
-        <Button Content="Tornar al Kanban"
-                Width="150" Height="30"
-                Background="#076300"
-                Foreground="White"
-                FontWeight="Bold"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"
-                Margin="20"
+        <Button Content="Tornar al Kanban" Width="150" Height="30" Background="#076300" Foreground="White"
+                FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20"
                 Click="BackToKanban_LogIn"/>
+
     </Grid>
+
 </Window>

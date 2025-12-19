@@ -10,19 +10,15 @@ using Kanban.Model;
 using System.Windows;
 using System.Diagnostics;
 
-
-
 namespace Kanban.Controllers
 {
     public class UserController
     {
         string BaseUri;
 
-
         public UserController()
         {
             BaseUri = ConfigurationManager.AppSettings["BaseUri"];
-
         }
 
         public async Task<List<User>> GetAllUsersAsync()
@@ -33,9 +29,7 @@ namespace Kanban.Controllers
             {
                 client.BaseAddress = new Uri(BaseUri);
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json")
-                );
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // GET /user
                 HttpResponseMessage response = await client.GetAsync("users");
@@ -60,6 +54,39 @@ namespace Kanban.Controllers
             return users;
         }
 
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            User user = null;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(BaseUri);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                // GET /user/{id}
+                HttpResponseMessage response = await client.GetAsync($"users/{id}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    if (response.StatusCode != System.Net.HttpStatusCode.NoContent)
+                    {
+                        user = await response.Content.ReadAsAsync<User>();
+                    }
+                }
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    user = null;
+                }
+                else
+                {
+                    // TODO: handle other errors (log / throw)
+                }
+            }
+
+            return user;
+        }
+
         public async Task<int> GetUserTaskCountAsync(int id)
         {
             int count = 0;
@@ -68,12 +95,10 @@ namespace Kanban.Controllers
             {
                 client.BaseAddress = new Uri(BaseUri);
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json")
-                );
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // GET /users/count/{id}
-                HttpResponseMessage response = await client.GetAsync($"user/count/{id}");
+                HttpResponseMessage response = await client.GetAsync($"users/count/{id}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -81,7 +106,6 @@ namespace Kanban.Controllers
                     {
                         string json = await response.Content.ReadAsStringAsync();
                         count = int.Parse(json);
-
                     }
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
@@ -105,9 +129,7 @@ namespace Kanban.Controllers
             {
                 client.BaseAddress = new Uri(BaseUri);
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json")
-                );
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // POST /user
                 HttpResponseMessage response = await client.PostAsJsonAsync("users", user);
@@ -136,12 +158,10 @@ namespace Kanban.Controllers
             {
                 client.BaseAddress = new Uri(BaseUri);
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json")
-                );
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // PUT /user/{id}
-                HttpResponseMessage response = await client.PutAsJsonAsync($"user/{id}", user);
+                HttpResponseMessage response = await client.PutAsJsonAsync($"users/{id}", user);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -164,7 +184,6 @@ namespace Kanban.Controllers
             return updated;
         }
 
-
         public async Task<bool> DeleteUserAsync(int id)
         {
             bool deleted = false;
@@ -173,12 +192,10 @@ namespace Kanban.Controllers
             {
                 client.BaseAddress = new Uri(BaseUri);
                 client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json")
-                );
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // DELETE /user/{id}
-                HttpResponseMessage response = await client.DeleteAsync($"user/{id}");
+                HttpResponseMessage response = await client.DeleteAsync($"users/{id}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -197,6 +214,7 @@ namespace Kanban.Controllers
 
             return deleted;
         }
+
         public async Task<User> LoginWithUsersAsync(string username, string password)
         {
             try
@@ -211,7 +229,7 @@ namespace Kanban.Controllers
                 {
                     foreach (var u in users)
                     {
-                        Debug.WriteLine($"User: id={u.Id}, username={u.UserName} ,nom={u.Nom}, password={u.Passwd}, admin={u.IsAdmin}");
+                        Debug.WriteLine($"User: id={u.Id}, username={u.UserName}, nom={u.Nom}, password={u.Passwd}, admin={u.IsAdmin}");
                     }
                 }
 
@@ -227,7 +245,6 @@ namespace Kanban.Controllers
 
                 Debug.WriteLine("Usuario no encontrado");
                 return null;
-
             }
             catch (Exception e)
             {

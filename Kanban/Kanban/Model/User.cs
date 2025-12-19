@@ -15,5 +15,9 @@ namespace Kanban.Model
 
         public int IsAdmin { get; set; }
         public string Passwd { get; set; }
+
+        // per el numero de tasques del panell de control
+        public int NumTasques { get; set; }
+
     }
 }
