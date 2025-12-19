@@ -1,0 +1,184 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\kanban\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\kanban\\popupxaml.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\popupxaml.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|c:\\users\\faeer\\desktop\\github\\kanban\\kanban\\kanban\\userlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\userlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\kanban\\userlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\userlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\kanban\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\kanban\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\kanban\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\kanban\\popupxaml.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\popupxaml.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\kanban\\model\\tasques.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB7745B7-9380-480F-B4D7-E49789303D48}|Kanban\\Kanban.csproj|solutionrelative:kanban\\model\\tasques.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "userList.xaml",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\userList.xaml",
+              "RelativeDocumentMoniker": "Kanban\\userList.xaml",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\userList.xaml",
+              "RelativeToolTip": "Kanban\\userList.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-18T16:16:48.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TaskController.cs",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\Controllers\\TaskController.cs",
+              "RelativeDocumentMoniker": "Kanban\\Controllers\\TaskController.cs",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\Controllers\\TaskController.cs",
+              "RelativeToolTip": "Kanban\\Controllers\\TaskController.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAcwNAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T15:58:26.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\Model\\User.cs",
+              "RelativeDocumentMoniker": "Kanban\\Model\\User.cs",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\Model\\User.cs",
+              "RelativeToolTip": "Kanban\\Model\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T15:58:04.742Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Tasques.cs",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\Model\\Tasques.cs",
+              "RelativeDocumentMoniker": "Kanban\\Model\\Tasques.cs",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\Model\\Tasques.cs",
+              "RelativeToolTip": "Kanban\\Model\\Tasques.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T15:58:03.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "popUpxaml.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\popUpxaml.xaml.cs",
+              "RelativeDocumentMoniker": "Kanban\\popUpxaml.xaml.cs",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\popUpxaml.xaml.cs",
+              "RelativeToolTip": "Kanban\\popUpxaml.xaml.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwBsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T15:57:07.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "popUpxaml.xaml",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\popUpxaml.xaml",
+              "RelativeDocumentMoniker": "Kanban\\popUpxaml.xaml",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\popUpxaml.xaml",
+              "RelativeToolTip": "Kanban\\popUpxaml.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-18T15:57:06.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Kanban\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\MainWindow.xaml",
+              "RelativeToolTip": "Kanban\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-11T14:29:55.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Kanban\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Kanban\\MainWindow.xaml.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAWwEQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-11T14:29:54.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "userList.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\userList.xaml.cs",
+              "RelativeDocumentMoniker": "Kanban\\userList.xaml.cs",
+              "ToolTip": "C:\\Users\\faeer\\Desktop\\GITHUB\\kanban\\Kanban\\Kanban\\userList.xaml.cs",
+              "RelativeToolTip": "Kanban\\userList.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAWwFAAAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T15:28:26.171Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
