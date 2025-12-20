@@ -29,27 +29,17 @@ namespace Kanban
 
             taskController = new TaskController();
             userController = new UserController();
+
             Tasca = tasca;
             DataContext = Tasca;
 
+            _esNueva = false;
             _isAdmin = isAdmin;
 
-            _esNueva = false;
-
             CargarCombos();
-
-            if (soloEditarEstado)
-            {
-
-                ActivarModoEditarEstado();
-            }
-            if (_isAdmin)
-                btnBorrar.Visibility = Visibility.Visible;
-            else
-                ActivarModoLectura();
+            ActivarModoEdicionSegunRol();
         }
 
-        // Modo creación
         public popUpxaml(bool isNew)
         {
             InitializeComponent();
@@ -63,17 +53,10 @@ namespace Kanban
             _esNueva = true;
 
             CargarCombos();
-            ActivarModoEdicion();
+            ActivarModoEdicion(); // full edit
         }
 
-        private void ActivarModoLectura()
-        {
-            txtTitulo.IsReadOnly = true;
-            txtDescripcion.IsReadOnly = true;
-            comboEstat.IsEnabled = false;
-            comboPrioridad.IsEnabled = false;
-            btnGuardar.Visibility = Visibility.Collapsed;
-        }
+     
 
         private void ActivarModoEdicion()
         {
@@ -93,22 +76,21 @@ namespace Kanban
         {
             Tasca.Nom = txtTitulo.Text;
             Tasca.Descripcio = txtDescripcion.Text;
-            Tasca.Prioritat = comboPrioridad.SelectedIndex+1;
+            Tasca.Prioritat = comboPrioridad.SelectedIndex + 1;
             Tasca.Estat = comboEstat.SelectedIndex + 1;
             Tasca.DataFinal = FinalDate.SelectedDate;
-            Tasca.UsuariId = comboUsuario.SelectedValue as int?;
 
-
-            if (_esNueva || comboUsuario.IsEnabled)
+            // Solo asignar usuario si es nuevo o admin
+            if (_esNueva || _isAdmin)
             {
                 if (comboUsuario.SelectedValue == null)
                 {
                     MessageBox.Show("Debes seleccionar un usuario");
                     return;
                 }
+
                 Tasca.UsuariId = (int)comboUsuario.SelectedValue;
             }
-            Tasca.UsuariId = (int)comboUsuario.SelectedValue;
 
             try
             {
@@ -122,9 +104,10 @@ namespace Kanban
             }
             catch
             {
-                MessageBox.Show("Error guardant la tasca");
+                MessageBox.Show("Error guardando la tarea");
             }
         }
+
         private void CargarCombos()
         {
             comboEstat.ItemsSource = new[]
@@ -155,18 +138,35 @@ namespace Kanban
                 MessageBox.Show("Error cargando usuarios");
             }
         }
-        private void ActivarModoEditarEstado()
+        private void ActivarModoEdicionSegunRol()
         {
-            // Bloqueamos todo excepto el estado
-            txtTitulo.IsReadOnly = true;
-            txtDescripcion.IsReadOnly = true;
-            FinalDate.IsEnabled = false;
-            comboUsuario.IsEnabled = false;
-            comboPrioridad.IsEnabled = false;
+            // Siempre editable
+            comboEstat.IsEnabled = true;
+            comboPrioridad.IsEnabled = true;
+            btnGuardar.Visibility = Visibility.Visible;
 
-            comboEstat.IsEnabled = true; // Solo editable
-            btnGuardar.Visibility = Visibility.Visible; // Mostramos botón guardar
+            if (_isAdmin)
+            {
+                // Admin → todo editable
+                txtTitulo.IsReadOnly = false;
+                txtDescripcion.IsReadOnly = false;
+                FinalDate.IsEnabled = true;
+                comboUsuario.IsEnabled = true;
+
+                btnBorrar.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                // No admin → restricciones
+                txtTitulo.IsReadOnly = true;
+                txtDescripcion.IsReadOnly = true;
+                FinalDate.IsEnabled = false;
+                comboUsuario.IsEnabled = false;
+
+                btnBorrar.Visibility = Visibility.Collapsed;
+            }
         }
+
         private async void Borrar_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show("¿Seguro que quieres borrar esta tarea?", "Confirmar", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
